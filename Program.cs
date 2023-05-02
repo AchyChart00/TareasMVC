@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using TareasMVC;
+
 namespace TareasMVC
 {
     public class Program
@@ -8,6 +11,11 @@ namespace TareasMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services
+                .AddDbContext<ApplicationDbContext>(
+                    opciones => opciones.UseSqlServer("name=DefaultConnection")
+                    );
 
             var app = builder.Build();
 
