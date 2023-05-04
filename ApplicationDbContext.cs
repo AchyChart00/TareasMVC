@@ -25,6 +25,7 @@ namespace TareasMVC
         //Configuro nuestra clase Tarea como una entidad
         public DbSet<Tarea> Tareas { get; set; }
         public DbSet<Paso> Pasos { get; set; }
+        public DbSet<ArchivoAdjunto> ArchivosAdjuntos { get; set; } 
         //Migraciones, es una representación en código de los cambios que va a ocurrir en la BD
         //es un paso intermedio, ya que podemos ver que exactamente va a pasar con nuestra base de datos
         //Para eso utilizamos el package manager console

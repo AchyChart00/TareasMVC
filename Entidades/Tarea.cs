@@ -18,5 +18,7 @@ namespace TareasMVC.Entidades
         //propiedad de navegación
         //una tarea le corresponden muchos pasos
         public List<Paso> Pasos { get; set; }
+        //Propiedad de navegación
+        public List<ArchivoAdjunto> ArchivosAdjuntos { get; set; }
     }
 }
