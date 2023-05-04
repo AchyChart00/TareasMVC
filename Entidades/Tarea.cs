@@ -15,5 +15,8 @@ namespace TareasMVC.Entidades
         public string Descripcion { get; set; }
         public int Orden { get; set; }
         public DateTime FechaCreacion { get; set; }
+        //propiedad de navegación
+        //una tarea le corresponden muchos pasos
+        public List<Paso> Pasos { get; set; }
     }
 }

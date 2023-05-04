@@ -22,6 +22,31 @@ namespace TareasMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("TareasMVC.Entidades.Paso", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Realizado")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TareaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TareaId");
+
+                    b.ToTable("Pasos");
+                });
+
             modelBuilder.Entity("TareasMVC.Entidades.Tarea", b =>
                 {
                     b.Property<int>("Id")
@@ -47,6 +72,22 @@ namespace TareasMVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tareas");
+                });
+
+            modelBuilder.Entity("TareasMVC.Entidades.Paso", b =>
+                {
+                    b.HasOne("TareasMVC.Entidades.Tarea", "Tarea")
+                        .WithMany("Pasos")
+                        .HasForeignKey("TareaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tarea");
+                });
+
+            modelBuilder.Entity("TareasMVC.Entidades.Tarea", b =>
+                {
+                    b.Navigation("Pasos");
                 });
 #pragma warning restore 612, 618
         }
