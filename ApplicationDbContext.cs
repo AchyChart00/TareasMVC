@@ -11,6 +11,17 @@ namespace TareasMVC
         {
 
         }
+        //api fluente, para configuraciones como alternativa. si no funcionan o tenemos probleams con los atributos en nuestras clases tipo entidad
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //Es equivalente a 
+            //atributo de configuración para mi tabla
+            //[StringLength(250)]
+            //[Required]
+            //public string Titulo { get; set; }
+            //modelBuilder.Entity<Tarea>().Property(t=>t.Titulo).HasMaxLength(250).IsRequired();
+        }
         //Configuro nuestra clase Tarea como una entidad
         public DbSet<Tarea> Tareas { get; set; }
         //Migraciones, es una representación en código de los cambios que va a ocurrir en la BD
