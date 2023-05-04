@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TareasMVC;
 
@@ -17,6 +19,25 @@ namespace TareasMVC
                     opciones => opciones.UseSqlServer("name=DefaultConnection")
                     );
 
+            //Agrego el servicio de autenticación para que el usuario se pueda logear
+            builder.Services.AddAuthentication();
+
+            //Agergo los servicios de identity, puedo pasar una clase personalizada o unas clases por defecto 
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>(opciones =>
+            {
+                //No Se requiere una cuenta confirmada para que le usuario pueda logearse
+                opciones.SignIn.RequireConfirmedAccount = false; 
+            }).AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+
+            builder.Services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme,
+                opciones =>
+                {
+                    opciones.LoginPath = "/usuarios/login";
+                    opciones.AccessDeniedPath = "/usuarios/login";
+
+                });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,6 +53,8 @@ namespace TareasMVC
 
             app.UseRouting();
 
+            //middleware
+            app.UseAuthentication();    
             app.UseAuthorization();
 
             app.MapControllerRoute(

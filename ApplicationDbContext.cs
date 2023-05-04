@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TareasMVC.Entidades;
 
 namespace TareasMVC
 {
-    public class ApplicationDbContext : DbContext
+    //public class ApplicationDbContext : DbContext nos define que tablas vamos a utilizar
+    //IdentityDbContext nos trae unas tablas por defecto para trabajar con usuarios
+    public class ApplicationDbContext : IdentityDbContext
     {
         //applicationDbContext es arbitrario puedo usar cualquier nombre, el dbContext
         //Podemos configurar las tablas de nuestras bases de datos y hacer consultas o cualquier tipo de operación.
