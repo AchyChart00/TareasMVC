@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using TareasMVC;
 
@@ -11,8 +13,17 @@ namespace TareasMVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            //agregamos un filtro para que solo acepte usuarios autenticados
+            var politicaUsuariosAutenticados= new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+
+
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(opciones =>
+            {
+                opciones.Filters.Add(new AuthorizeFilter(politicaUsuariosAutenticados));
+            });
 
             builder.Services
                 .AddDbContext<ApplicationDbContext>(
