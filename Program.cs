@@ -31,7 +31,11 @@ namespace TareasMVC
                     );
 
             //Agrego el servicio de autenticación para que el usuario se pueda logear
-            builder.Services.AddAuthentication();
+            builder.Services.AddAuthentication().AddMicrosoftAccount(opciones =>
+            {
+                opciones.ClientId = builder.Configuration["MicrosoftClientId"];
+                opciones.ClientSecret = builder.Configuration["MicrosoftSecretId"];
+            });
 
             //Agergo los servicios de identity, puedo pasar una clase personalizada o unas clases por defecto 
             builder.Services.AddIdentity<IdentityUser, IdentityRole>(opciones =>
