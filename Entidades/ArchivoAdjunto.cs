@@ -6,7 +6,7 @@ namespace TareasMVC.Entidades
     {
         public Guid Id { get; set; }
         public int TareaId { get; set; }
-        
+
         public Tarea Tarea { get; set; }//Propiedad de navegación
         [Unicode]
         public string Url { get; set; }

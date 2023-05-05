@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
-using TareasMVC;
 
 namespace TareasMVC
 {
@@ -14,7 +13,7 @@ namespace TareasMVC
             var builder = WebApplication.CreateBuilder(args);
 
             //agregamos un filtro para que solo acepte usuarios autenticados
-            var politicaUsuariosAutenticados= new AuthorizationPolicyBuilder()
+            var politicaUsuariosAutenticados = new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
                 .Build();
 
@@ -41,7 +40,7 @@ namespace TareasMVC
             builder.Services.AddIdentity<IdentityUser, IdentityRole>(opciones =>
             {
                 //No Se requiere una cuenta confirmada para que le usuario pueda logearse
-                opciones.SignIn.RequireConfirmedAccount = false; 
+                opciones.SignIn.RequireConfirmedAccount = false;
             }).AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
@@ -69,7 +68,7 @@ namespace TareasMVC
             app.UseRouting();
 
             //middleware
-            app.UseAuthentication();    
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using TareasMVC.Models;
 
@@ -11,15 +12,18 @@ namespace TareasMVC.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+        private readonly ApplicationDbContext applicationDbContext;
 
         public UsuariosController(
                 //Inyectamos el userManager para trabajar con usuarios
                 UserManager<IdentityUser> userManager,
-                SignInManager<IdentityUser> signInManager
+                SignInManager<IdentityUser> signInManager,
+                ApplicationDbContext applicationDbContext
             )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.applicationDbContext = applicationDbContext;
         }
 
         //AllowAnonymous permite que cualquier usuario autenticado o no pueda invocar esta acción
@@ -44,11 +48,11 @@ namespace TareasMVC.Controllers
                 UserName = modelo.Email
             };
 
-            var resultado = await userManager.CreateAsync(usuario, password:modelo.Password); 
-        
-            if (resultado.Succeeded) 
+            var resultado = await userManager.CreateAsync(usuario, password: modelo.Password);
+
+            if (resultado.Succeeded)
             {
-                await signInManager.SignInAsync(usuario, isPersistent:true);
+                await signInManager.SignInAsync(usuario, isPersistent: true);
                 return RedirectToAction("Index", "Home");
 
             }
@@ -56,10 +60,10 @@ namespace TareasMVC.Controllers
             {
                 foreach (var error in resultado.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);  
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
 
-                return View(modelo);    
+                return View(modelo);
             }
 
 
@@ -107,7 +111,7 @@ namespace TareasMVC.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
-            return RedirectToAction("Index", "Home");   
+            return RedirectToAction("Index", "Home");
         }
 
         [AllowAnonymous]
@@ -116,7 +120,7 @@ namespace TareasMVC.Controllers
         //ChallengeResult redirige al usuario a una fuente donde pueda logearse
         public ChallengeResult LoginExterno(string proveedor, string urlRetorno = null)
         {
-            var urlRedireccion = Url.Action("RegistrarUsuarioExterno", values:new { urlRetorno});
+            var urlRedireccion = Url.Action("RegistrarUsuarioExterno", values: new { urlRetorno });
             var propiedades = signInManager.ConfigureExternalAuthenticationProperties(proveedor, urlRedireccion);
             return new ChallengeResult(proveedor, propiedades);
         }
@@ -124,7 +128,7 @@ namespace TareasMVC.Controllers
         //Método que recibe la data del proveedor de identidad
         [AllowAnonymous]
         public async Task<IActionResult> RegistrarUsuarioExterno(
-                string urlRetorno =  null,
+                string urlRetorno = null,
                 string remoteError = null
             )
         {
@@ -135,12 +139,12 @@ namespace TareasMVC.Controllers
             if (remoteError is not null)
             {
                 mensaje = $"Error del proveedor externo: {remoteError}";
-                return RedirectToAction("Login", routeValues: new { mensaje});   
+                return RedirectToAction("Login", routeValues: new { mensaje });
             }
 
             var info = await signInManager.GetExternalLoginInfoAsync();
 
-            if (info is null) 
+            if (info is null)
             {
                 mensaje = "Error cargando la data del login externo";
 
@@ -162,7 +166,7 @@ namespace TareasMVC.Controllers
 
             string email = "";
 
-            if (info.Principal.HasClaim(c=>c.Type == ClaimTypes.Email))
+            if (info.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
             {
                 email = info.Principal.FindFirstValue(ClaimTypes.Email);
             }
@@ -179,20 +183,35 @@ namespace TareasMVC.Controllers
             if (!resultadoCrearUsuario.Succeeded)
             {
                 mensaje = resultadoCrearUsuario.Errors.First().Description;
-                return RedirectToAction("login", routeValues: new { mensaje});
+                return RedirectToAction("login", routeValues: new { mensaje });
             }
 
             var resultadoAgregarLogin = await userManager.AddLoginAsync(usuario, info);
 
             if (resultadoAgregarLogin.Succeeded)
             {
-                await signInManager.SignInAsync(usuario, isPersistent:true, info.LoginProvider);
+                await signInManager.SignInAsync(usuario, isPersistent: true, info.LoginProvider);
                 return RedirectToAction(urlRetorno);
             }
 
             mensaje = "Ha ocurrido un error agregando el login";
-            return RedirectToAction("login", routeValues: new { mensaje});
+            return RedirectToAction("login", routeValues: new { mensaje });
 
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Listado(string mensaje = null)
+        {
+            var usuarios = await applicationDbContext.Users.Select(u => new UsuarioViewModel
+            {
+                Email = u.Email,
+            }).ToListAsync();
+
+            var modelo = new UsuariosListadoViewModel();
+            modelo.Usuarios = usuarios;
+            modelo.Mensaje = mensaje;
+            return View(modelo);
 
         }
     }
