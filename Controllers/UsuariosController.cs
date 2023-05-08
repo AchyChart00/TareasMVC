@@ -202,6 +202,7 @@ namespace TareasMVC.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = Constantes.RolAdmin)]//el atributo permite que solo las personas con roladmin pueden utilizar esa acción o método
         public async Task<IActionResult> Listado(string mensaje = null)
         {
             var usuarios = await applicationDbContext.Users.Select(u => new UsuarioViewModel
@@ -217,6 +218,7 @@ namespace TareasMVC.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Constantes.RolAdmin)]
         public async Task<IActionResult> HacerAdmin(string email)
         {
             var usuario = await applicationDbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
@@ -232,6 +234,7 @@ namespace TareasMVC.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Constantes.RolAdmin)]
         public async Task<IActionResult> RemoverAdmin(string email)
         {
             var usuario = await applicationDbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
