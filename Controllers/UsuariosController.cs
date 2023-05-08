@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using TareasMVC.Models;
+using TareasMVC.Servicios;
 
 namespace TareasMVC.Controllers
 {
@@ -213,6 +214,36 @@ namespace TareasMVC.Controllers
             modelo.Mensaje = mensaje;
             return View(modelo);
 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> HacerAdmin(string email)
+        {
+            var usuario = await applicationDbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
+
+            if (usuario is null)
+            {
+                return NotFound();  
+            }
+
+            await userManager.AddToRoleAsync(usuario, Constantes.RolAdmin);
+
+            return RedirectToAction("Listado", routeValues: new { mensaje="Rol asignado correctamen a " + email});
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoverAdmin(string email)
+        {
+            var usuario = await applicationDbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
+
+            if (usuario is null)
+            {
+                return NotFound();
+            }
+
+            await userManager.RemoveFromRoleAsync(usuario, Constantes.RolAdmin);
+
+            return RedirectToAction("Listado", routeValues: new { mensaje = "Rol removido correctamen a " + email });
         }
     }
 }
