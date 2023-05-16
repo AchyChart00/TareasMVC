@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace TareasMVC
 {
@@ -22,7 +25,7 @@ namespace TareasMVC
             builder.Services.AddControllersWithViews(opciones =>
             {
                 opciones.Filters.Add(new AuthorizeFilter(politicaUsuariosAutenticados));
-            });
+            }).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
             builder.Services
                 .AddDbContext<ApplicationDbContext>(
@@ -53,9 +56,20 @@ namespace TareasMVC
                 });
 
             //localización
-            builder.Services.AddLocalization();
+            builder.Services.AddLocalization(opciones =>
+            {
+                opciones.ResourcesPath = "Recursos";
+            });
 
             var app = builder.Build();
+
+            var CulturasUISoportadas = new[] { "es", "en" };
+
+            app.UseRequestLocalization(opciones =>
+            {
+                opciones.DefaultRequestCulture = new RequestCulture("es");
+                opciones.SupportedUICultures = CulturasUISoportadas.Select(cultura => new CultureInfo(cultura)).ToList();
+            });
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

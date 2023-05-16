@@ -80,3 +80,8 @@ E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\Micros
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\en\TareasMVC.resources.dll
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.Controllers.HomeController.en.resources
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.csproj.GenerateResource.cache
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\en\TareasMVC.resources.dll
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.Views.Home.Index.en.resources
