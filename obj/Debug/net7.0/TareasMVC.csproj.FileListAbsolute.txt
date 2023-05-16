@@ -88,3 +88,5 @@ E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\Tareas
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\es\TareasMVC.resources.dll
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.Views.Home.Index.es.resources
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\es\TareasMVC.resources.dll
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.RecursoCompartido.en.resources
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.RecursoCompartido.es.resources

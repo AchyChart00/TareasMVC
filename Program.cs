@@ -25,7 +25,12 @@ namespace TareasMVC
             builder.Services.AddControllersWithViews(opciones =>
             {
                 opciones.Filters.Add(new AuthorizeFilter(politicaUsuariosAutenticados));
-            }).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+            }).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+            .AddDataAnnotationsLocalization(opciones =>
+            {
+                //anotaciones de datos para traducciones
+                opciones.DataAnnotationLocalizerProvider = (_, factoria) => factoria.Create(typeof(RecursoCompartido));
+            });
 
             builder.Services
                 .AddDbContext<ApplicationDbContext>(
