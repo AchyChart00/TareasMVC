@@ -22,7 +22,7 @@ namespace TareasMVC.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Saludo = localizer["Buenos días"];
+            //ViewBag.Saludo = localizer["Buenos días"];
             return View();
         }
 

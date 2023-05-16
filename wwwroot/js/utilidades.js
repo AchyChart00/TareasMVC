@@ -1,3 +1,3 @@
-﻿function mostrarError() {
+﻿/*function mostrarError() {
     alert(mensajeDeError);
-}
+}*/
