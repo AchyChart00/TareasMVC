@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "twM+p2kuJAYAXQgOqNQGVhbaqQzWO1nkbB6HPpKeIgs=",
+  "Hash": "iHCSbo24RyXrdgyxPk4cgTWlnQXL9Om1ugTWesxkLR4=",
   "Source": "TareasMVC",
   "BasePath": "_content/TareasMVC",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\js\\utilidades.js",
+      "SourceId": "TareasMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\",
+      "BasePath": "_content/TareasMVC",
+      "RelativePath": "js/utilidades.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\utilidades.js"
     },
     {
       "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

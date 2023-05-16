@@ -19,6 +19,9 @@
         "resources": {
           "en/TareasMVC.resources.dll": {
             "locale": "en"
+          },
+          "es/TareasMVC.resources.dll": {
+            "locale": "es"
           }
         }
       },

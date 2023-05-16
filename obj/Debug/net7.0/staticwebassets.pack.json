@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\js\\utilidades.js",
+      "PackagePath": "staticwebassets\\js\\utilidades.js"
+    },
+    {
       "Id": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

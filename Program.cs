@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+using TareasMVC.Servicios;
 
 namespace TareasMVC
 {
@@ -68,12 +69,14 @@ namespace TareasMVC
 
             var app = builder.Build();
 
-            var CulturasUISoportadas = new[] { "es", "en" };
+            //seleccionar idioma manualmente
+            //var CulturasUISoportadas = new[] { "es", "en" };
 
             app.UseRequestLocalization(opciones =>
             {
                 opciones.DefaultRequestCulture = new RequestCulture("es");
-                opciones.SupportedUICultures = CulturasUISoportadas.Select(cultura => new CultureInfo(cultura)).ToList();
+                opciones.SupportedUICultures = Constantes.CulturasUISoportadas.Select(cultura => new CultureInfo(cultura.Value)).
+                ToList();
             });
 
             // Configure the HTTP request pipeline.
