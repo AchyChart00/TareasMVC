@@ -85,3 +85,6 @@ E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\Tareas
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.csproj.GenerateResource.cache
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\en\TareasMVC.resources.dll
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.Views.Home.Index.en.resources
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\es\TareasMVC.resources.dll
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.Views.Home.Index.es.resources
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\es\TareasMVC.resources.dll
