@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using TareasMVC.Servicios;
+using TareasMVC.Servicios.IServices;
 
 namespace TareasMVC
 {
@@ -66,6 +67,9 @@ namespace TareasMVC
             {
                 opciones.ResourcesPath = "Recursos";
             });
+
+            //inyección de dependensia
+            builder.Services.AddTransient<IServicioUsuarios, ServicioUsuarios>();
 
             var app = builder.Build();
 
