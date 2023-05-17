@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iHCSbo24RyXrdgyxPk4cgTWlnQXL9Om1ugTWesxkLR4=",
+  "Hash": "50Glo5aEWqSD03QKGdWTUUCw/aVij8ra5WHpYMYOkPY=",
   "Source": "TareasMVC",
   "BasePath": "_content/TareasMVC",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\js\\tareas.js",
+      "SourceId": "TareasMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\",
+      "BasePath": "_content/TareasMVC",
+      "RelativePath": "js/tareas.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\tareas.js"
     },
     {
       "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\js\\utilidades.js",
