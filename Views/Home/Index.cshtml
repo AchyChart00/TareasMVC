@@ -22,14 +22,29 @@
         <span class="visually-hidden">Cargando...</span>
     </div>
 
+    <div data-bind="visible: noHayTareas">
+        No existen tareas para mostrar
+    </div>
+
 </div>
 
 @section Scripts{
     <script>
-        const tareaListadoViewModel = {
-            tareas: ko.observableArray([]),
-            cargando: ko.observable(true)
+        function tareaListadoViewModelFn(){
+            var self = this;
+            self.tareas = ko.observableArray([]);
+            self.cargando =  ko.observable(true);
+
+            self.noHayTareas = ko.pureComputed(function(){
+                if(self.cargando()){
+                    return false;
+                }
+
+                return self.tareas().length === 0;
+            })
         }
+
+        const tareaListadoViewModel = new tareaListadoViewModelFn();
 
         setTimeout(()=>{
             //se ejecuta después de 2 segundos
