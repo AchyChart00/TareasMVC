@@ -35,6 +35,9 @@
 @section Scripts{
     <script src="~/js/tareas.js" asp-asp-append-version="true"></script>
     <script>
+        //colocamos el nombre de nuestro endpoint
+        const urlTareas = "/api/tareas";
+
         function tareaListadoViewModelFn(){
             var self = this;
             self.tareas = ko.observableArray([]);
