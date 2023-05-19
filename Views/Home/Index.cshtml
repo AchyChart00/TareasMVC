@@ -64,11 +64,13 @@
 
         const tareaListadoViewModel = new tareaListadoViewModelFn();
 
-        setTimeout(()=>{
+        //setTimeout(()=>{
             //se ejecuta después de 2 segundos
             //tareaListadoViewModel.tareas.push({titulo:'tarea 1'})
-            tareaListadoViewModel.cargando(false)
-        }, 100)
+            //tareaListadoViewModel.cargando(false)
+        //}, 100)
+
+        obtenerTareas();
 
         ko.applyBindings(tareaListadoViewModel, document.getElementById('contenedor-listado-tareas'));
 
