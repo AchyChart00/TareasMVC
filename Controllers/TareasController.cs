@@ -26,7 +26,9 @@ namespace TareasMVC.Controllers
         public async Task<List<Tarea>> Get()
         {
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
-            var tareas = await context.Tareas.Where(t=>t.UsuarioCreacionId== usuarioId).ToListAsync();    
+            var tareas = await context.Tareas.Where(t=>t.UsuarioCreacionId== usuarioId)
+                .OrderBy(t=>t.Orden)
+                .ToListAsync();    
             return tareas;  
         }
 
