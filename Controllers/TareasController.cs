@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TareasMVC.Entidades;
+using TareasMVC.Models;
 using TareasMVC.Servicios.IServices;
 
 namespace TareasMVC.Controllers
@@ -23,11 +24,20 @@ namespace TareasMVC.Controllers
         }
 
         [HttpGet]
-        public async Task<List<Tarea>> Get()
+        //public async Task<List<Tarea>> Get()
+        //public async Task<IActionResult> Get()
+        //Agregamos un DTO para evitar errores al momento de regresar algo en el metodo
+        public async Task<List<TareaDTO>> Get()
         {
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
             var tareas = await context.Tareas.Where(t=>t.UsuarioCreacionId== usuarioId)
                 .OrderBy(t=>t.Orden)
+                .Select(t=> new TareaDTO
+                {
+                    //Tenemos un problema si necesitamos mapear manuelmente más de 5 campos
+                    Id = t.Id,
+                    Titulo =t.Titulo
+                })
                 .ToListAsync();    
             return tareas;  
         }
