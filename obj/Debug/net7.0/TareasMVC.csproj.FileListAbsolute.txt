@@ -92,3 +92,5 @@ E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\Tareas
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.RecursoCompartido.es.resources
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.Views.Shared._TraduccionesJS.es.resources
 E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\obj\Debug\net7.0\TareasMVC.Recursos.Views.Shared._TraduccionJS.en.resources
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\AutoMapper.dll
+E:\FullStack\CSharp\CShapCurso\CursoASPNET_MVC\TareasMVC\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

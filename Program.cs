@@ -70,6 +70,8 @@ namespace TareasMVC
 
             //inyección de dependensia
             builder.Services.AddTransient<IServicioUsuarios, ServicioUsuarios>();
+           //Inyección de automapper
+            builder.Services.AddAutoMapper(typeof(Program));
 
             var app = builder.Build();
 

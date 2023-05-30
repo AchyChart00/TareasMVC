@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TareasMVC.Entidades;
 using TareasMVC.Models;
@@ -13,14 +15,17 @@ namespace TareasMVC.Controllers
     {
         private readonly ApplicationDbContext context;
         private readonly IServicioUsuarios servicioUsuarios;
+        private readonly IMapper mapper;
 
         public TareasController(
                 ApplicationDbContext context,
-                IServicioUsuarios servicioUsuarios
+                IServicioUsuarios servicioUsuarios,
+                IMapper mapper
             )
         {
             this.context = context;
             this.servicioUsuarios = servicioUsuarios;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -32,12 +37,7 @@ namespace TareasMVC.Controllers
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
             var tareas = await context.Tareas.Where(t=>t.UsuarioCreacionId== usuarioId)
                 .OrderBy(t=>t.Orden)
-                .Select(t=> new TareaDTO
-                {
-                    //Tenemos un problema si necesitamos mapear manuelmente más de 5 campos
-                    Id = t.Id,
-                    Titulo =t.Titulo
-                })
+                .ProjectTo<TareaDTO>(mapper.ConfigurationProvider)
                 .ToListAsync();    
             return tareas;  
         }
