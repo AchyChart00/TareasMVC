@@ -32,8 +32,9 @@ namespace TareasMVC.Controllers
         //public async Task<List<Tarea>> Get()
         //public async Task<IActionResult> Get()
         //Agregamos un DTO para evitar errores al momento de regresar algo en el metodo
-        public async Task<List<TareaDTO>> Get()
+        public async Task<ActionResult<List<TareaDTO>>> Get()
         {
+            //return BadRequest("No puedes hacer esto");
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
             var tareas = await context.Tareas.Where(t=>t.UsuarioCreacionId== usuarioId)
                 .OrderBy(t=>t.Orden)
