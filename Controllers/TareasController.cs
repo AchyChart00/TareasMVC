@@ -36,26 +36,45 @@ namespace TareasMVC.Controllers
         {
             //return BadRequest("No puedes hacer esto");
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
-            var tareas = await context.Tareas.Where(t=>t.UsuarioCreacionId== usuarioId)
-                .OrderBy(t=>t.Orden)
+            var tareas = await context.Tareas.Where(t => t.UsuarioCreacionId == usuarioId)
+                .OrderBy(t => t.Orden)
                 .ProjectTo<TareaDTO>(mapper.ConfigurationProvider)
-                .ToListAsync();    
-            return tareas;  
+                .ToListAsync();
+            return tareas;
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Tarea>> Get(int id)
         {
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
-            
-            var tarea = await context.Tareas.FirstOrDefaultAsync(t=>t.Id==id && t.UsuarioCreacionId == usuarioId);
-            
-            if(tarea is null)
+
+            var tarea = await context.Tareas.FirstOrDefaultAsync(t => t.Id == id && t.UsuarioCreacionId == usuarioId);
+
+            if (tarea is null)
             {
                 return NotFound();
             }
 
-            return tarea;   
+            return tarea;
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var usuarioId = servicioUsuarios.ObtenerUsuarioId();
+
+            var tarea = await context.Tareas.FirstOrDefaultAsync(t=> t.Id == id && t.UsuarioCreacionId ==usuarioId);
+
+            if (tarea is null)
+            {
+                return NotFound();
+            }
+
+            context.Remove(tarea);
+
+            await context.SaveChangesAsync();
+
+            return Ok();
         }
 
         [HttpPost]
