@@ -12,7 +12,9 @@
 
 <div id="contenedor-listado-tareas" class="text-center">
     <div id="reordenable" class="text-start" data-bind="foreach: tareas">
-        <div name="tarea" class="border mb-2 p-3" style="cursor:pointer">
+        <div name="tarea" class="border mb-2 p-3" style="cursor:pointer"
+        data-bind="click: manejarClickTarea"
+        >
             <div data-bind="text: titulo, hidden: esNuevo" class="fw-bold">
 
             </div>
@@ -63,6 +65,12 @@
             self.esNuevo = ko.pureComputed(function(){
                 return self.id() == 0;
             });
+        }
+
+        const tareaEditarVM = {
+            id:0,
+            titulo: ko.observable(''),
+            descripcion: ko.observable('')
         }
 
         const tareaListadoViewModel = new tareaListadoViewModelFn();
