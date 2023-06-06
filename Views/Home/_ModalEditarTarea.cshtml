@@ -17,7 +17,8 @@
                             <input type="text" class="form-control" 
                             id="txtTituloCrearTarea" 
                             placeholder="titulo" 
-                            data-bind="value:titulo"/>
+                            autocomplete="off"
+                            data-bind="value:titulo, event:{change: manejarCambioEditarTarea}"/>
                             <label for="txtTituloCrearTarea">Título de la tarea</label>
                         </div>
 
@@ -25,9 +26,8 @@
                             <label>Descripción</label>
                             <textarea type="text" 
                                 class="form-control" 
-                                rows="4" 
-                                data-bind="value:Descripcion"
-                            ></textarea>
+                                rows="4"
+                                data-bind="value:descripcion, event:{change: manejarCambioEditarTarea}"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-3">

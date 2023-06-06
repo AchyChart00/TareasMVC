@@ -88,6 +88,26 @@ namespace TareasMVC.Controllers
             return tarea;
         }
 
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> EditarTarea(int id, [FromBody] TareaEditarDTO tareaEditarDTO)
+        {
+            var usuarioId = servicioUsuarios.ObtenerUsuarioId();
+            var tarea = await context.Tareas.FirstOrDefaultAsync(t=>t.Id == id && t.UsuarioCreacionId== usuarioId);
+
+            if (tarea is null)
+            {
+                return NotFound();  
+            }
+
+            tarea.Titulo = tareaEditarDTO.Titulo;
+            tarea.Descripcion = tareaEditarDTO.Descripcion; 
+
+            await context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+
         [HttpPost("ordenar")]
         public async Task<IActionResult> Ordenar([FromBody] int[] ids)
         {
