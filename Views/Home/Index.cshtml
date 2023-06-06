@@ -35,6 +35,8 @@
 
 </div>
 
+<partial name="_ModalEditarTarea"/>
+
 @section Scripts{
     <script src="~/js/utilidades.js" asp-append-version="true"></script>
     <script src="~/js/tareas.js" asp-append-version="true"></script>
@@ -42,6 +44,10 @@
     <script>
         //colocamos el nombre de nuestro endpoint
         const urlTareas = "/api/tareas";
+
+        const modalEditarTarea = document.getElementById('modal-editar-tarea');
+        const modalEditarTareaBootstrap = new bootstrap.Modal(modalEditarTarea);
+
 
         function tareaListadoViewModelFn(){
             var self = this;
@@ -84,6 +90,7 @@
         obtenerTareas();
 
         ko.applyBindings(tareaListadoViewModel, document.getElementById('contenedor-listado-tareas'));
+        ko.applyBindings(tareaEditarVM, document.getElementById('modal-editar-tarea'));
 
     </script>
 }
