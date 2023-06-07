@@ -99,3 +99,33 @@ function manejarClickCheckboxPaso(paso) {
 
     return true;
 }
+
+function manejarClickBorrarPaso(paso) {
+    modalEditarTareaBootstrap.hide();
+    confirmarAccion({
+        callBackAceptar: () => {
+            borrarPaso(paso);
+            modalEditarTareaBootstrap.show();
+        }, 
+        callBackCancelar: () => {
+            modalEditarTareaBootstrap.show();
+        }, 
+        titulo: `¿Desea Borrar este paso?`
+    });
+
+}
+
+async function borrarPaso(paso) {
+
+    const respuesta = await fetch(`${urlPasos}/${paso.id()}`, {
+        method: 'DELETE',
+
+    });
+
+    if (!respuesta.ok) {
+        manejarErrorApi(respuesta);
+        return;
+    }
+
+    tareaEditarVM.pasos.remove(function (item) { return item.id()==paso.id() });
+}

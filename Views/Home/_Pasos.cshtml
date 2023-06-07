@@ -28,6 +28,10 @@
                     data-bind="{click: manejarClickSalvarPaso}"> Salvar</button>
                     <button class="btn btn-secondary" 
                     data-bind="{click: manejarClickCancelarPaso}"> Cancelar</button>
+                    <button class="btn btn-danger"
+                            data-bind="{hidden: esNuevo, click: manejarClickBorrarPaso}">
+                        Borrar
+                    </button>
                 </div>
 
             </div>
