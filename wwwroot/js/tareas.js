@@ -190,6 +190,11 @@ function obtenerIndiceTareaEnEdicion() {
     );
 }
 
+function obtenerTareaEnEdicion() {
+    const indice = obtenerIndiceTareaEnEdicion();
+    return tareaListadoViewModel.tareas()[indice];
+}
+
 $(function () {
     $("#reordenable").sortable({
         axis: 'y', 
