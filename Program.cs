@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+using System.Text.Json.Serialization;
 using TareasMVC.Servicios;
 using TareasMVC.Servicios.IServices;
 
@@ -32,6 +33,10 @@ namespace TareasMVC
             {
                 //anotaciones de datos para traducciones
                 opciones.DataAnnotationLocalizerProvider = (_, factoria) => factoria.Create(typeof(RecursoCompartido));
+            }).AddJsonOptions(opciones =>
+            {
+                //Esto ayuda a solucionar el problema de referencias ciclicas que producen las entidades de PASO y TAREA
+                opciones.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
             });
 
             builder.Services
