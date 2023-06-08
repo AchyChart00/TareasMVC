@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\js\\archivos-adjuntos.js",
+      "PackagePath": "staticwebassets\\js\\archivos-adjuntos.js"
+    },
+    {
       "Id": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\js\\pasos.js",
       "PackagePath": "staticwebassets\\js\\pasos.js"
     },
