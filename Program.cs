@@ -77,6 +77,8 @@ namespace TareasMVC
             builder.Services.AddTransient<IServicioUsuarios, ServicioUsuarios>();
            //Inyección de automapper
             builder.Services.AddAutoMapper(typeof(Program));
+            //inyección almacenador archivo azure
+            builder.Services.AddTransient<IAlmacenadorArchivos, AlmacenadorArchivosAzure>();
 
             var app = builder.Build();
 

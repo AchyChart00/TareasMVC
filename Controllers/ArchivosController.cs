@@ -67,7 +67,7 @@ namespace TareasMVC.Controllers
                     TareaId = tareaId,
                     FechaCreacion = DateTime.Now,
                     Url = resultado.URL,
-                    Titulo = resultado.Titutlo,
+                    Titulo = resultado.Titulo,
                     Orden = ordenMayor + indice + 1
                 }).ToList();
 
