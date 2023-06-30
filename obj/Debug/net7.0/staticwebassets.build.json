@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0ZFz+agDuDAb5hlKkCelN2I6cLlrmSLC922V5V4a+O4=",
+  "Hash": "2uUd+Bmfo3vNYh7CAwCtNXcnmB+USl0x/Q+908bh08U=",
   "Source": "TareasMVC",
   "BasePath": "_content/TareasMVC",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\TareasMVC.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\archivosAdjuntos\\0b0cfb47-b958-4d3b-9243-567be7d5c1c6.jpg",
+      "SourceId": "TareasMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\",
+      "BasePath": "_content/TareasMVC",
+      "RelativePath": "archivosAdjuntos/0b0cfb47-b958-4d3b-9243-567be7d5c1c6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\archivosAdjuntos\\0b0cfb47-b958-4d3b-9243-567be7d5c1c6.jpg"
+    },
+    {
+      "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\archivosAdjuntos\\d6fddabf-adaa-4691-a3bf-9bd8977e9830.jpg",
+      "SourceId": "TareasMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\",
+      "BasePath": "_content/TareasMVC",
+      "RelativePath": "archivosAdjuntos/d6fddabf-adaa-4691-a3bf-9bd8977e9830.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\archivosAdjuntos\\d6fddabf-adaa-4691-a3bf-9bd8977e9830.jpg"
     },
     {
       "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\css\\site.css",

@@ -7,12 +7,14 @@ namespace TareasMVC.Servicios
     public class AlmacenadorArchivosAzure : IAlmacenadorArchivos
     {
         private string connectionString;
-        public AlmacenadorArchivosAzure(IConfiguration configuration) 
+
+        public AlmacenadorArchivosAzure(IConfiguration configuration)
         {
             connectionString = configuration.GetConnectionString("AzureStorage");
         }
 
-        public async Task<AlmacenarArchivoResultado[]> Almacenar(string contenedor, IEnumerable<IFormFile> archivos)
+        public async Task<AlmacenarArchivoResultado[]> Almacenar(string contenedor,
+            IEnumerable<IFormFile> archivos)
         {
             var cliente = new BlobContainerClient(connectionString, contenedor);
             await cliente.CreateIfNotExistsAsync();
@@ -35,7 +37,7 @@ namespace TareasMVC.Servicios
             });
 
             var resultados = await Task.WhenAll(tareas);
-            return resultados;  
+            return resultados;
         }
 
         public async Task Borrar(string ruta, string contenedor)
@@ -49,7 +51,7 @@ namespace TareasMVC.Servicios
             await cliente.CreateIfNotExistsAsync();
             var nombreArchivo = Path.GetFileName(ruta);
             var blob = cliente.GetBlobClient(nombreArchivo);
-            await blob.DeleteIfExistsAsync();   
+            await blob.DeleteIfExistsAsync();
         }
     }
 }

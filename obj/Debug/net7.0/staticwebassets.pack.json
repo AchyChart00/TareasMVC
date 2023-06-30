@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\TareasMVC.bundle.scp.css"
     },
     {
+      "Id": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\archivosAdjuntos\\0b0cfb47-b958-4d3b-9243-567be7d5c1c6.jpg",
+      "PackagePath": "staticwebassets\\archivosAdjuntos\\0b0cfb47-b958-4d3b-9243-567be7d5c1c6.jpg"
+    },
+    {
+      "Id": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\archivosAdjuntos\\d6fddabf-adaa-4691-a3bf-9bd8977e9830.jpg",
+      "PackagePath": "staticwebassets\\archivosAdjuntos\\d6fddabf-adaa-4691-a3bf-9bd8977e9830.jpg"
+    },
+    {
       "Id": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
