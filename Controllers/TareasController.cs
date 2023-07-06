@@ -49,7 +49,8 @@ namespace TareasMVC.Controllers
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
 
             var tarea = await context.Tareas
-                .Include(t => t.Pasos.OrderBy(p=>p.Orden))
+                .Include(t => t.Pasos.OrderBy(p => p.Orden))
+                .Include(t=> t.ArchivosAdjuntos.OrderBy(a=>a.Orden))
                 .FirstOrDefaultAsync(t => t.Id == id 
                 && t.UsuarioCreacionId == usuarioId);
 

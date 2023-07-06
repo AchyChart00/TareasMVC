@@ -18,7 +18,7 @@ namespace TareasMVC.Controllers
             ApplicationDbContext context,
             IAlmacenadorArchivos almacenadorArchivos,
             IServicioUsuarios servicioUsuarios
-            ) 
+            )
         {
             this.context = context;
             this.almacenadorArchivos = almacenadorArchivos;
@@ -68,6 +68,31 @@ namespace TareasMVC.Controllers
             await context.SaveChangesAsync();
 
             return archivosAdjuntos.ToList();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(Guid id, [FromBody] string titulo)
+        {
+            var usuarioId = servicioUsuarios.ObtenerUsuarioId();
+
+            var archivoAdjunto = await context.ArchivosAdjuntos
+                .Include(a => a.Tarea)
+                .FirstOrDefaultAsync(a=> a.Id == id);
+
+            if (archivoAdjunto is null)
+            {
+                return NotFound();  
+            }
+
+            if (archivoAdjunto.Tarea.UsuarioCreacionId != usuarioId)
+            {
+                return Forbid();
+            }
+
+            archivoAdjunto.Titulo = titulo;
+
+            await context.SaveChangesAsync();
+            return Ok();
         }
     }
 }

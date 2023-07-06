@@ -29,3 +29,53 @@ async function manejarSeleccionArchivoTarea(event) {
 
     inputArchivoTarea.value = null;
 }
+
+
+function prepararArchivosAdjuntos(archivosAdjuntos) {
+    archivosAdjuntos.forEach(archivoAdjunto => {
+        let fechaCreacion = archivoAdjunto.fechaCreacion;
+        if (archivoAdjunto.fechaCreacion.indexOf('Z') === -1) {
+            fechaCreacion += 'Z';
+        }
+
+        const fechaCreationDT = new Date(fechaCreacion);
+        archivoAdjunto.publicado = fechaCreationDT.toLocaleString();
+
+        tareaEditarVM.archivosAdjuntos.push(
+            new archivoAdjuntoViewModel({ ...archivoAdjunto, mmodoEdicion: false }));
+    });
+}
+
+let tituloArchivoAdjuntoAnterior;
+function manejarClickTituloArchivoAdjunto(archivoAdjunto) {
+    archivoAdjunto.modoEdicion(true);
+    tituloArchivoAdjuntoAnterior = archivoAdjunto.titulo();
+    $("[name='txtArchivoAdjuntoTitulo']:visible").focus();
+}
+
+async function manejarFocusoutTituloArchivoAdjunto(archivoAdjunto) {
+    archivoAdjunto.modoEdicion(false);
+    const idTarea = archivoAdjunto.id;
+
+    if (!archivoAdjunto.titulo()) {
+        archivoAdjunto.titulo(tituloArchivoAdjuntoAnterior);
+    }
+
+    if (archivoAdjunto.titulo() === tituloArchivoAdjuntoAnterior) {
+        return;
+    }
+
+    const data = JSON.stringify(archivoAdjunto.titulo());
+
+    const respuesta = await fetch(`${urlArchivos}/${idTarea}`, {
+        body: data,
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (!respuesta.ok) {
+        manejarErrorApi(respuesta);
+    }
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2uUd+Bmfo3vNYh7CAwCtNXcnmB+USl0x/Q+908bh08U=",
+  "Hash": "49E9N9IYZv+5Ku0MS6qy+d/M30zRAM4vDa2rYHohh3s=",
   "Source": "TareasMVC",
   "BasePath": "_content/TareasMVC",
   "Mode": "Default",
@@ -66,6 +66,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\archivosAdjuntos\\0b0cfb47-b958-4d3b-9243-567be7d5c1c6.jpg"
+    },
+    {
+      "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\archivosAdjuntos\\45cd4b01-06e7-43db-b1cf-4fa7c84906d0.jpg",
+      "SourceId": "TareasMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\",
+      "BasePath": "_content/TareasMVC",
+      "RelativePath": "archivosAdjuntos/45cd4b01-06e7-43db-b1cf-4fa7c84906d0.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\archivosAdjuntos\\45cd4b01-06e7-43db-b1cf-4fa7c84906d0.jpg"
+    },
+    {
+      "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\archivosAdjuntos\\d264ba7e-065b-48d4-9d9c-285a67f192d4.jpeg",
+      "SourceId": "TareasMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\",
+      "BasePath": "_content/TareasMVC",
+      "RelativePath": "archivosAdjuntos/d264ba7e-065b-48d4-9d9c-285a67f192d4.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\archivosAdjuntos\\d264ba7e-065b-48d4-9d9c-285a67f192d4.jpeg"
     },
     {
       "Identity": "E:\\FullStack\\CSharp\\CShapCurso\\CursoASPNET_MVC\\TareasMVC\\wwwroot\\archivosAdjuntos\\d6fddabf-adaa-4691-a3bf-9bd8977e9830.jpg",
