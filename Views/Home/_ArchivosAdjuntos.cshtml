@@ -1,6 +1,6 @@
 ﻿<label><i class="bi bi-paperclip"></i>Archivos Adjuntos</label>
 
-<button onclick="manejarClickAgregarArchivoAdjunto()"><i class="bi bi-plus"></i></button>
+<button class="btn btn-secondary btn-sm" onclick="manejarClickAgregarArchivoAdjunto()"><i class="bi bi-plus"></i></button>
 
 <input type="file" 
     onchange="manejarSeleccionArchivoTarea(event)"
@@ -19,9 +19,9 @@ hidden: modoEdicion, click: manejarClickTituloArchivoAdjunto"></div>
         <div>
             Agregado <span data-bind="text: publicado"></span> -
             <span class="fw-bold" style="cursor: pointer"
-                  data-bind="click: ">Borrar</span> -
+                  data-bind="click: manejarClickBorrarArchivoAdjunto">Borrar</span> -
             <span class="fw-bold"
-                  data-bind="click: "
+                  data-bind="click: manejarClickDescargarArchivoAdjunto"
                   style="cursor: pointer">Descargar</span>
         </div>
     </div>

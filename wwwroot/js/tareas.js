@@ -112,8 +112,10 @@ async function manejarClickTarea(tarea) {
     json.pasos.forEach(paso => {
         tareaEditarVM.pasos.push(
             new pasoViewModel({ ...paso, modoEdicion: false })
-        );
-    });
+        )
+    })
+
+    tareaEditarVM.archivosAdjuntos([]); // <--- Faltó esta línea
 
     prepararArchivosAdjuntos(json.archivosAdjuntos);
 
